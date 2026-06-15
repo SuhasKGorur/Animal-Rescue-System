@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/login.html</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/ReportServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/ViewReportsServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/viewreports.jsp</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/model/Report.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/UpdateStatusServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/adminlogin.html</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/AdminLoginServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/admindashboard.jsp</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/LogoutServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/DeleteReportServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/LoginServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/userdashboard.jsp</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/UserLogoutServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/reportanimal.jsp</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/index.html</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/register.html</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/AdminDashboardServlet.java</file>
+        </group>
+    </open-files>
+</project-private>
