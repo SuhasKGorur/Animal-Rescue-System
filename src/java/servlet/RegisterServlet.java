@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import db.DBConnection;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.PreparedStatement; //to create SQL command object
 
 @WebServlet("/RegisterServlet")
@@ -41,6 +42,23 @@ public class RegisterServlet extends HttpServlet {
         //insert to database
         try{
             Connection con = DBConnection.getConnection();
+            //check if user exists            
+            PreparedStatement ps2 = con.prepareStatement
+            ("SELECT * FROM users WHERE email=?");
+
+            ps2.setString(1,email);
+
+            ResultSet rs = ps2.executeQuery();
+
+            if(rs.next())
+            {
+                response.sendRedirect(
+                        "login.html?msg=exists");
+
+                return;
+            }
+            
+            //new user
             String query = "insert into users(name,email,password)"
                     + "values(?,?,?)";
             
@@ -56,12 +74,12 @@ public class RegisterServlet extends HttpServlet {
             response.setContentType("text/html");
 
             PrintWriter out = response.getWriter();
-            
-            if(rows>0){
-                out.println("<h1>Registration Successful</h1>");
+                 
+            if(rows > 0){
+                response.sendRedirect("login.html?msg=registered");
             }
             else{
-                out.println("<h1>Registration Failed</h1>");
+                response.sendRedirect("login.html?msg=failed");
             }
         }catch(Exception e){
             e.printStackTrace();

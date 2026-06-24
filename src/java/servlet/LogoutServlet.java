@@ -26,6 +26,6 @@ public class LogoutServlet extends HttpServlet {
         }
 
         response.sendRedirect(
-                "adminlogin.html");
+        "adminlogin.html?msg=logout");
     }
 }

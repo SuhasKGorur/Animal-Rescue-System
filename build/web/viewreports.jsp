@@ -62,16 +62,25 @@ body{
 
 <div class="container">
 
-<a class="navbar-brand"
-href="admindashboard.jsp">
+<a class="navbar-brand d-flex align-items-center"
+   href="admindashboard.jsp">
 
-Animal Rescue Admin Portal
+<img src="images/logo.png"
+     width="40"
+     height="40"
+     class="me-2">
+
+<span>
+
+Animal Rescue Portal
+
+</span>
 
 </a>
 
 <div>
 
-<a href="admindashboard.jsp"
+<a href="AdminDashboardServlet"
 class="btn btn-light me-2">
 
 Dashboard

@@ -1,5 +1,7 @@
 package servlet;
 
+import util.GeminiUtil;
+
 import db.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,6 +29,9 @@ public class ReportServlet extends HttpServlet {
         String animal_type = request.getParameter("animal_type");
         String location = request.getParameter("location");
         String description = request.getParameter("description");
+        String aiResponse = GeminiUtil.getRecommendation(description);
+        System.out.println(aiResponse);
+        
         String reporter_name = request.getParameter("reporter_name");
         String contact_number = request.getParameter("contact_number");
         String urgency_level = request.getParameter("urgency_level");
@@ -37,14 +42,17 @@ public class ReportServlet extends HttpServlet {
             con = DBConnection.getConnection();
             
             HttpSession session =request.getSession(false);
+            
             if(session == null ||session.getAttribute("user") == null)
             {
                 response.sendRedirect("login.html");
                 return;
             }
+            String email = (String)session.getAttribute("user");
             
-            String query = "insert into reports(animal_type,location,description,reporter_name,contact_number,urgency_level)"
-                    + "values(?,?,?,?,?,?)";
+            String query = "insert into reports(animal_type,location,description,"
+                    + "reporter_name,contact_number,urgency_level,user_email)"
+                    + "values(?,?,?,?,?,?,?)";
             
             ps = con.prepareStatement(query);
             
@@ -56,17 +64,16 @@ public class ReportServlet extends HttpServlet {
             ps.setString(4,reporter_name);
             ps.setString(5,contact_number);
             ps.setString(6,urgency_level);
+            ps.setString(7,email);
                         
             int rows=ps.executeUpdate(); 
         
             // Send response to browser
             response.setContentType("text/html");
-
-            PrintWriter out = response.getWriter();
             
             if(rows>0){
                 response.sendRedirect(
-            "userdashboard.jsp?msg=success");
+            "UserReportsServlet?msg=success");
             }
             else{
                 response.sendRedirect(

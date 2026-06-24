@@ -14,7 +14,6 @@ return;
 
 <head>
 
-```
 <title>Report Animal</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -45,7 +44,6 @@ return;
     }
 
 </style>
-```
 
 </head>
 
@@ -55,15 +53,33 @@ return;
 
 <nav class="navbar navbar-dark bg-success">
 
-```
 <div class="container">
 
-    <a class="navbar-brand"
-       href="userdashboard.jsp">
+    <a class="navbar-brand d-flex align-items-center"
+   href="userdashboard.jsp">
 
-        Animal Rescue Portal
+<img src="images/logo.png"
+     width="40"
+     height="40"
+     class="me-2">
 
-    </a>
+<span>
+
+Animal Rescue Portal
+
+</span>
+
+<div>
+
+<a href="UserReportsServlet"
+   class="btn btn-light me-2">
+
+My Reports
+
+</a>
+
+
+</a>
 
     <a href="UserLogoutServlet"
        class="btn btn-light">
@@ -73,7 +89,6 @@ return;
     </a>
 
 </div>
-```
 
 </nav>
 
@@ -81,7 +96,6 @@ return;
 
 <div class="container mt-4">
 
-```
 <!-- HERO SECTION -->
 
 <div class="hero text-center">
@@ -254,7 +268,6 @@ Please try again.
     </div>
 
 </div>
-```
 
 </div>
 

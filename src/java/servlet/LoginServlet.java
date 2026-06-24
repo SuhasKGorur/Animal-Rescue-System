@@ -41,8 +41,7 @@ public class LoginServlet extends HttpServlet {
             ps.setString(2,password);
                         
             ResultSet rs = ps.executeQuery(); 
-        
-            
+                   
             PrintWriter out = response.getWriter();
             
             if(rs.next()){
@@ -50,11 +49,11 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("user",email);
                 
                 response.sendRedirect(
-                    "userdashboard.jsp");
+                    "reportanimal.jsp");
 
             }
             else{
-                out.println("<h1>Login Failed</h1>");
+                response.sendRedirect("login.html?msg=failed");
             }
         }catch(Exception e){
             e.printStackTrace();

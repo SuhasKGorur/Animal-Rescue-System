@@ -85,12 +85,21 @@ int rescued =
 ```
 <div class="container">
 
-    <a class="navbar-brand"
-       href="#">
+    <a class="navbar-brand d-flex align-items-center"
+   href="#">
 
-        Animal Rescue Admin Portal
+<img src="images/logo.png"
+     width="40"
+     height="40"
+     class="me-2">
 
-    </a>
+<span>
+
+Animal Rescue Portal
+
+</span>
+
+</a>
 
     <a href="LogoutServlet"
        class="btn btn-light">

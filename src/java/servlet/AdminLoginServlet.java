@@ -38,7 +38,7 @@ public class AdminLoginServlet extends HttpServlet {
         }
         else
         {
-            response.getWriter().println("<h2>Invalid Admin Credentials</h2>");
+            response.sendRedirect("adminlogin.html?msg=loginfailed");
         }
     }
 }

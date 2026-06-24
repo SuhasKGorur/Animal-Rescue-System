@@ -55,6 +55,27 @@ body{
 </head>
 
 <body>
+<%
+String msg =
+request.getParameter("msg");
+
+if("success".equals(msg))
+{
+%>
+
+<div class="container mt-3">
+
+<div class="alert alert-success">
+
+Report Submitted Successfully!
+
+</div>
+
+</div>
+
+<%
+}
+%>
 
 <!-- NAVBAR -->
 
@@ -63,7 +84,7 @@ body{
 <div class="container">
 
 <a class="navbar-brand d-flex align-items-center"
-   href="admindashboard.jsp">
+   href="reportanimal.jsp">
 
 <img src="images/logo.png"
      width="40"
@@ -80,14 +101,14 @@ Animal Rescue Portal
 
 <div>
 
-<a href="AdminDashboardServlet"
+<a href="reportanimal.jsp"
 class="btn btn-light me-2">
 
 Dashboard
 
 </a>
 
-<a href="LogoutServlet"
+<a href="UserLogoutServlet"
 class="btn btn-danger">
 
 Logout
@@ -137,8 +158,6 @@ Monitor, update and manage all rescue requests.
 <th>Location</th>
 <th>Status</th>
 <th>Urgency</th>
-<th>Update Status</th>
-<th>Delete</th>
 
 </tr>
 
@@ -260,49 +279,6 @@ Low
 <%
 }
 %>
-
-</td>
-
-<td>
-
-<form action="UpdateStatusServlet"
-      method="post">
-
-<input type="hidden"
-    name="report_id"
-    value="<%= report.getReportId() %>">
-
-<select name="status"
-     class="form-select form-select-sm">
-
-<option>Pending</option>
-<option>Assigned</option>
-<option>Rescued</option>
-
-</select>
-
-<button type="submit"
-     class="btn btn-primary btn-sm mt-2 w-100">
-
-Update
-
-</button>
-
-</form>
-
-</td>
-
-<td>
-
-<a href="DeleteReportServlet?id=<%= report.getReportId() %>"
-class="btn btn-danger btn-sm"
-
-onclick="return confirm(
-'Are you sure you want to delete this report?')">
-
-Delete
-
-</a>
 
 </td>
 

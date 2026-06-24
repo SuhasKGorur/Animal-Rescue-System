@@ -80,6 +80,8 @@
             </p>
 
         </div>
+        
+        <div id="message"></div>
 
         <form action="AdminLoginServlet"
               method="post">
@@ -136,6 +138,42 @@
     </div>
 
 </div>
+    
+<script>
+
+const params =
+new URLSearchParams(
+window.location.search);
+
+const msg =
+params.get("msg");
+
+if(msg === "loginfailed")
+{
+    document.getElementById(
+    "message").innerHTML =
+
+    `<div class="alert alert-danger">
+
+        Invalid Admin Username
+        or Password.
+
+    </div>`;
+}
+
+else if(msg === "logout")
+{
+    document.getElementById(
+    "message").innerHTML =
+
+    `<div class="alert alert-info">
+
+        Logged Out Successfully.
+
+    </div>`;
+}
+
+</script>
 
 </body>
 
