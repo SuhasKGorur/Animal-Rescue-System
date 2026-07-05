@@ -3,7 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/index.html</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/viewreports.jsp</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/LogoutServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/admindashboard.jsp</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/AdminDashboardServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/AdminLoginServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/adminlogin.html</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/servlet/ReportServlet.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/src/java/config.properties</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/register.html</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/login.html</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/reportanimal.jsp</file>
+            <file>file:/D:/Documents/NetBeansProjects/AnimalRescueJava/web/userreports.jsp</file>
         </group>
     </open-files>
 </project-private>

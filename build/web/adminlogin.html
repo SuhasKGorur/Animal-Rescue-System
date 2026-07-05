@@ -12,10 +12,7 @@
 
         body{
 
-            background: linear-gradient(
-                    135deg,
-                    #14532d,
-                    #22c55e);
+            background:#f5f7fa;
 
             height:100vh;
 
@@ -24,29 +21,105 @@
             justify-content:center;
 
             align-items:center;
+
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
         }
 
         .admin-card{
 
-            width:450px;
+            width:430px;
 
             border:none;
 
-            border-radius:20px;
+            border-radius:18px;
 
-            box-shadow:0 10px 25px rgba(0,0,0,0.35);
-        }
+            box-shadow:0 10px 30px rgba(0,0,0,0.12);
 
-        .admin-title{
-
-            color:#14532d;
-
-            font-weight:bold;
+            padding:10px;
         }
 
         .logo{
 
-            font-size:50px;
+            width:80px;
+
+            height:80px;
+
+            object-fit:contain;
+
+            margin-bottom:15px;
+        }
+
+        .admin-title{
+
+            font-weight:700;
+
+            color:#1f2937;
+        }
+
+        .subtitle{
+
+            color:#6b7280;
+
+            font-size:15px;
+        }
+
+        .badge-admin{
+
+            background:#e8f5e9;
+
+            color:#2e7d32;
+
+            padding:7px 15px;
+
+            border-radius:30px;
+
+            font-size:13px;
+
+            font-weight:600;
+        }
+
+        .form-control{
+
+            border-radius:10px;
+
+            padding:12px;
+
+            border:1px solid #d1d5db;
+        }
+
+        .form-control:focus{
+
+            box-shadow:none;
+
+            border-color:#198754;
+        }
+
+        .btn-login{
+
+            background:#198754;
+
+            border:none;
+
+            border-radius:10px;
+
+            padding:12px;
+
+            font-weight:600;
+        }
+
+        .btn-login:hover{
+
+            background:#157347;
+        }
+
+        a{
+
+            text-decoration:none;
+        }
+
+        a:hover{
+
+            text-decoration:underline;
         }
 
     </style>
@@ -57,88 +130,97 @@
 
 <div class="card admin-card">
 
-    <div class="card-body p-5">
+<div class="card-body p-4">
 
-        <div class="text-center mb-4">
+<div class="text-center">
 
-            <div class="logo">
+<img src="images/logo.png"
+     class="logo">
 
-                ADMIN
+<div class="mb-3">
 
-            </div>
+<span class="badge-admin">
 
-            <h2 class="admin-title">
+Administrator Access
 
-                Admin Portal
-
-            </h2>
-
-            <p class="text-muted">
-
-                Animal Rescue Management System
-
-            </p>
-
-        </div>
-        
-        <div id="message"></div>
-
-        <form action="AdminLoginServlet"
-              method="post">
-
-            <div class="mb-3">
-
-                <label class="form-label">
-
-                    Username
-
-                </label>
-
-                <input type="text"
-                       name="username"
-                       class="form-control"
-                       required>
-
-            </div>
-
-            <div class="mb-3">
-
-                <label class="form-label">
-
-                    Password
-
-                </label>
-
-                <input type="password"
-                       name="password"
-                       class="form-control"
-                       required>
-
-            </div>
-
-            <button type="submit"
-                    class="btn btn-success w-100">
-
-                Admin Login
-
-            </button>
-
-        </form>
-
-        <div class="text-center mt-3">
-
-            <a href="index.html">
-
-                Back to Home
-
-            </a>
-
-        </div>
-
-    </div>
+</span>
 
 </div>
-    
+
+<h2 class="admin-title">
+
+Admin Portal
+
+</h2>
+
+<p class="subtitle">
+
+Animal Rescue Management System
+
+</p>
+
+</div>
+
+<div id="message" class="mb-3"></div>
+
+<form action="AdminLoginServlet"
+      method="post">
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Username
+
+</label>
+
+<input type="text"
+       name="username"
+       class="form-control"
+       placeholder="Enter username"
+       required>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+
+Password
+
+</label>
+
+<input type="password"
+       name="password"
+       class="form-control"
+       placeholder="Enter password"
+       required>
+
+</div>
+
+<button type="submit"
+        class="btn btn-login text-white w-100">
+
+Login to Dashboard
+
+</button>
+
+</form>
+
+<div class="text-center mt-4">
+
+<a href="index.html">
+
+    Back to Home
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 <script>
 
 const params =
@@ -155,8 +237,7 @@ if(msg === "loginfailed")
 
     `<div class="alert alert-danger">
 
-        Invalid Admin Username
-        or Password.
+        Invalid Admin Username or Password.
 
     </div>`;
 }
@@ -166,7 +247,7 @@ else if(msg === "logout")
     document.getElementById(
     "message").innerHTML =
 
-    `<div class="alert alert-info">
+    `<div class="alert alert-success">
 
         Logged Out Successfully.
 
@@ -178,3 +259,19 @@ else if(msg === "logout")
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+

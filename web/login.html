@@ -12,10 +12,7 @@
 
         body{
 
-            background: linear-gradient(
-                    135deg,
-                    #0d6efd,
-                    #6ea8fe);
+            background:#f5f7fa;
 
             height:100vh;
 
@@ -24,6 +21,8 @@
             justify-content:center;
 
             align-items:center;
+
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
         }
 
         .login-card{
@@ -32,9 +31,95 @@
 
             border:none;
 
-            border-radius:15px;
+            border-radius:18px;
 
-            box-shadow:0 4px 20px rgba(0,0,0,0.3);
+            box-shadow:0 10px 30px rgba(0,0,0,0.12);
+
+            padding:10px;
+        }
+
+        .logo{
+
+            width:80px;
+
+            height:80px;
+
+            object-fit:contain;
+
+            margin-bottom:15px;
+        }
+
+        .login-title{
+
+            font-weight:700;
+
+            color:#1f2937;
+        }
+
+        .subtitle{
+
+            color:#6b7280;
+
+            font-size:15px;
+        }
+
+        .badge-user{
+
+            background:#e8f5e9;
+
+            color:#198754;
+
+            padding:7px 15px;
+
+            border-radius:30px;
+
+            font-size:13px;
+
+            font-weight:600;
+        }
+
+        .form-control{
+
+            border-radius:10px;
+
+            padding:12px;
+
+            border:1px solid #d1d5db;
+        }
+
+        .form-control:focus{
+
+            border-color:#198754;
+
+            box-shadow:none;
+        }
+
+        .btn-login{
+
+            background:#198754;
+
+            border:none;
+
+            border-radius:10px;
+
+            padding:12px;
+
+            font-weight:600;
+        }
+
+        .btn-login:hover{
+
+            background:#157347;
+        }
+
+        a{
+
+            text-decoration:none;
+        }
+
+        a:hover{
+
+            text-decoration:underline;
         }
 
     </style>
@@ -45,96 +130,111 @@
 
 <div class="card login-card">
 
-    <div class="card-body p-4">
+<div class="card-body p-4">
 
-        <div class="text-center mb-4">
+<div class="text-center">
 
-            <h2>
+<img src="images/logo.png"
+     class="logo">
 
-                Animal Rescue System
+<div class="mb-3">
 
-            </h2>
+<span class="badge-user">
 
-            <p class="text-muted">
+User Login
 
-                User Login
-
-            </p>
-
-        </div>
-        
-        <div id="message"></div>
-
-        <form action="LoginServlet"
-              method="post">
-
-            <div class="mb-3">
-
-                <label class="form-label">
-
-                    Email Address
-
-                </label>
-
-                <input type="email"
-                       name="email"
-                       class="form-control"
-                       required>
-
-            </div>
-
-            <div class="mb-3">
-
-                <label class="form-label">
-
-                    Password
-
-                </label>
-
-                <input type="password"
-                       name="password"
-                       class="form-control"
-                       required>
-
-            </div>
-
-            <button type="submit"
-                    class="btn btn-primary w-100">
-
-                Login
-
-            </button>
-
-        </form>
-
-        <div class="text-center mt-3">
-
-            New User?
-
-            <a href="register.html">
-
-                Register Here
-
-            </a>
-
-        </div>
-
-    </div>
+</span>
 
 </div>
+
+<h2 class="login-title">
+
+Animal Rescue Portal
+
+</h2>
+
+<p class="subtitle">
+
+Sign in to report and track rescue cases
+
+</p>
+
+</div>
+
+<div id="message" class="mb-3"></div>
+
+<form action="LoginServlet"
+      method="post">
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Email Address
+
+</label>
+
+<input type="email"
+       name="email"
+       class="form-control"
+       placeholder="Enter your email"
+       required>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+
+Password
+
+</label>
+
+<input type="password"
+       name="password"
+       class="form-control"
+       placeholder="Enter your password"
+       required>
+
+</div>
+
+<button type="submit"
+        class="btn btn-login text-white w-100">
+
+Login
+
+</button>
+
+</form>
+
+<div class="text-center mt-4">
+
+New User?
+
+<a href="register.html">
+
+Create Account
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 <script>
 
 const params =
 new URLSearchParams(
 window.location.search);
 
-const msg=params.get('msg');
+const msg =
+params.get("msg");
 
-if(params.get("msg")
-=== "registered")
+if(msg === "registered")
 {
-    document.getElementById(
-    "message").innerHTML =
+    document.getElementById("message").innerHTML =
 
     `<div class="alert alert-success">
 
@@ -143,10 +243,10 @@ if(params.get("msg")
 
     </div>`;
 }
+
 else if(msg === "exists")
 {
-    document.getElementById(
-    "message").innerHTML =
+    document.getElementById("message").innerHTML =
 
     `<div class="alert alert-warning">
 
@@ -158,13 +258,22 @@ else if(msg === "exists")
 
 else if(msg === "failed")
 {
-    document.getElementById(
-    "message").innerHTML =
+    document.getElementById("message").innerHTML =
 
-    `<div class="alert alert-warning">
+    `<div class="alert alert-danger">
 
-        Login Failed
-        Try again.
+        Invalid email or password.
+
+    </div>`;
+}
+
+else if(msg === "logout")
+{
+    document.getElementById("message").innerHTML =
+
+    `<div class="alert alert-success">
+
+        Logged Out Successfully.
 
     </div>`;
 }

@@ -1,7 +1,5 @@
 package servlet;
 
-import util.GeminiUtil;
-
 import db.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,9 +27,7 @@ public class ReportServlet extends HttpServlet {
         String animal_type = request.getParameter("animal_type");
         String location = request.getParameter("location");
         String description = request.getParameter("description");
-        String aiResponse = GeminiUtil.getRecommendation(description);
-        System.out.println(aiResponse);
-        
+              
         String reporter_name = request.getParameter("reporter_name");
         String contact_number = request.getParameter("contact_number");
         String urgency_level = request.getParameter("urgency_level");

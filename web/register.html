@@ -12,10 +12,7 @@
 
         body{
 
-            background: linear-gradient(
-                    135deg,
-                    #198754,
-                    #20c997);
+            background:#f5f7fa;
 
             height:100vh;
 
@@ -24,17 +21,105 @@
             justify-content:center;
 
             align-items:center;
+
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
         }
 
         .register-card{
 
-            width:500px;
+            width:450px;
 
             border:none;
 
-            border-radius:15px;
+            border-radius:18px;
 
-            box-shadow:0 4px 20px rgba(0,0,0,0.3);
+            box-shadow:0 10px 30px rgba(0,0,0,0.12);
+
+            padding:10px;
+        }
+
+        .logo{
+
+            width:80px;
+
+            height:80px;
+
+            object-fit:contain;
+
+            margin-bottom:15px;
+        }
+
+        .register-title{
+
+            font-weight:700;
+
+            color:#1f2937;
+        }
+
+        .subtitle{
+
+            color:#6b7280;
+
+            font-size:15px;
+        }
+
+        .badge-user{
+
+            background:#e8f5e9;
+
+            color:#198754;
+
+            padding:7px 15px;
+
+            border-radius:30px;
+
+            font-size:13px;
+
+            font-weight:600;
+        }
+
+        .form-control{
+
+            border-radius:10px;
+
+            padding:12px;
+
+            border:1px solid #d1d5db;
+        }
+
+        .form-control:focus{
+
+            border-color:#198754;
+
+            box-shadow:none;
+        }
+
+        .btn-register{
+
+            background:#198754;
+
+            border:none;
+
+            border-radius:10px;
+
+            padding:12px;
+
+            font-weight:600;
+        }
+
+        .btn-register:hover{
+
+            background:#157347;
+        }
+
+        a{
+
+            text-decoration:none;
+        }
+
+        a:hover{
+
+            text-decoration:underline;
         }
 
     </style>
@@ -45,94 +130,110 @@
 
 <div class="card register-card">
 
-    <div class="card-body p-4">
+<div class="card-body p-4">
 
-        <div class="text-center mb-4">
+<div class="text-center">
 
-            <h2>
+<img src="images/logo.png"
+     class="logo">
 
-                Animal Rescue System
+<div class="mb-3">
 
-            </h2>
+<span class="badge-user">
 
-            <p class="text-muted">
+Create New Account
 
-                Create your account
+</span>
 
-            </p>
+</div>
 
-        </div>
+<h2 class="register-title">
 
-        <form action="RegisterServlet"
-              method="post">
+Animal Rescue Portal
 
-            <div class="mb-3">
+</h2>
 
-                <label class="form-label">
+<p class="subtitle">
 
-                    Full Name
+Join our rescue community
 
-                </label>
+</p>
 
-                <input type="text"
-                       name="name"
-                       class="form-control"
-                       required>
+</div>
 
-            </div>
+<form action="RegisterServlet"
+      method="post">
 
-            <div class="mb-3">
+<div class="mb-3">
 
-                <label class="form-label">
+<label class="form-label">
 
-                    Email Address
+Full Name
 
-                </label>
+</label>
 
-                <input type="email"
-                       name="email"
-                       class="form-control"
-                       required>
+<input type="text"
+       name="name"
+       class="form-control"
+       placeholder="Enter your full name"
+       required>
 
-            </div>
+</div>
 
-            <div class="mb-3">
+<div class="mb-3">
 
-                <label class="form-label">
+<label class="form-label">
 
-                    Password
+Email Address
 
-                </label>
+</label>
 
-                <input type="password"
-                       name="password"
-                       class="form-control"
-                       required>
+<input type="email"
+       name="email"
+       class="form-control"
+       placeholder="Enter your email"
+       required>
 
-            </div>
+</div>
 
-            <button type="submit"
-                    class="btn btn-success w-100">
+<div class="mb-4">
 
-                Register
+<label class="form-label">
 
-            </button>
+Password
 
-        </form>
+</label>
 
-        <div class="text-center mt-3">
+<input type="password"
+       name="password"
+       class="form-control"
+       placeholder="Create a password"
+       required>
 
-            Already have an account?
+</div>
 
-            <a href="login.html">
+<button type="submit"
+        class="btn btn-register text-white w-100">
 
-                Login Here
+Create Account
 
-            </a>
+</button>
 
-        </div>
+</form>
 
-    </div>
+<div class="text-center mt-4">
+
+Already have an account?
+
+<a href="login.html">
+
+Login
+
+</a>
+
+</div>
+
+</div>
 
 </div>
 

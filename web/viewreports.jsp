@@ -12,42 +12,146 @@ ArrayList<Report> reportList =
 
 <head>
 
-<title>Animal Rescue Reports</title>
+<title>Manage Rescue Reports</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <style>
 
 body{
-    background:#f4f6f9;
+
+    background:#f8fafc;
+
+    font-family:'Segoe UI',sans-serif;
+
+    color:#1f2937;
 }
 
-.hero{
+/* NAVBAR */
 
-    background:linear-gradient(
-            135deg,
-            #14532d,
-            #22c55e);
+.navbar{
 
-    color:white;
+    background:white;
 
-    padding:40px;
+    border-bottom:1px solid #e5e7eb;
 
-    border-radius:20px;
-
-    margin-top:20px;
+    padding:15px 0;
 }
+
+.navbar-brand{
+
+    color:#198754 !important;
+
+    font-size:24px;
+
+    font-weight:600;
+}
+
+.logo{
+
+    width:45px;
+
+    height:45px;
+
+    object-fit:contain;
+}
+
+/* PAGE HEADER */
+
+.page-header{
+
+    margin-top:40px;
+
+    margin-bottom:30px;
+}
+
+.page-header h2{
+
+    font-weight:700;
+}
+
+.page-header p{
+
+    color:#6b7280;
+}
+
+/* TABLE CARD */
 
 .table-card{
 
     background:white;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    padding:20px;
+    overflow:hidden;
 
-    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.table{
+
+    margin-bottom:0;
+}
+
+.table thead{
+
+    background:#f9fafb;
+}
+
+.table th{
+
+    border:none;
+
+    color:#374151;
+
+    padding:18px;
+
+    font-weight:600;
+}
+
+.table td{
+
+    padding:18px;
+
+    vertical-align:middle;
+
+    border-color:#f1f5f9;
+}
+
+/* STATUS BADGES */
+
+.badge{
+
+    border-radius:30px;
+
+    padding:8px 14px;
+
+    font-size:13px;
+}
+
+.btn{
+
+    border-radius:10px;
+}
+
+.form-select{
+
+    border-radius:10px;
+}
+
+footer{
+
+    margin-top:70px;
+
+    background:white;
+
+    border-top:1px solid #e5e7eb;
+
+    padding:35px;
 }
 
 </style>
@@ -58,37 +162,35 @@ body{
 
 <!-- NAVBAR -->
 
-<nav class="navbar navbar-dark bg-success">
+<nav class="navbar">
 
 <div class="container">
 
 <a class="navbar-brand d-flex align-items-center"
-   href="admindashboard.jsp">
+href="AdminDashboardServlet">
 
 <img src="images/logo.png"
-     width="40"
-     height="40"
-     class="me-2">
-
-<span>
+class="logo me-3">
 
 Animal Rescue Portal
-
-</span>
 
 </a>
 
 <div>
 
 <a href="AdminDashboardServlet"
-class="btn btn-light me-2">
+class="btn btn-outline-success me-2">
+
+<i class="bi bi-speedometer2"></i>
 
 Dashboard
 
 </a>
 
 <a href="LogoutServlet"
-class="btn btn-danger">
+class="btn btn-outline-danger">
+
+<i class="bi bi-box-arrow-right"></i>
 
 Logout
 
@@ -100,45 +202,57 @@ Logout
 
 </nav>
 
-<!-- MAIN CONTENT -->
+<!-- PAGE HEADER -->
 
 <div class="container">
 
-<!-- HERO SECTION -->
+<div class="page-header">
 
-<div class="hero text-center">
+<h2>
 
-<h1>
+Manage Rescue Reports
 
-Animal Rescue Reports
+</h2>
 
-</h1>
+<p>
 
-<p class="lead">
-
-Monitor, update and manage all rescue requests.
+Review, update and monitor all rescue requests submitted by users.
 
 </p>
 
 </div>
 
-<!-- REPORT TABLE -->
+<!-- TABLE -->
 
-<div class="table-card mt-4">
+<div class="table-card">
 
-<table class="table table-hover table-bordered align-middle">
+<table class="table table-hover align-middle">
 
-<thead class="table-success">
+<thead>
 
 <tr>
 
 <th>ID</th>
+
 <th>Animal</th>
+
 <th>Location</th>
+
 <th>Status</th>
+
 <th>Urgency</th>
-<th>Update Status</th>
-<th>Delete</th>
+
+<th width="220">
+
+Update Status
+
+</th>
+
+<th>
+
+Delete
+
+</th>
 
 </tr>
 
@@ -155,7 +269,11 @@ for(Report report : reportList)
 
 <td>
 
-<%= report.getReportId() %>
+<strong>
+
+#<%= report.getReportId() %>
+
+</strong>
 
 </td>
 
@@ -174,11 +292,13 @@ for(Report report : reportList)
 <td>
 
 <%
+
 String status =
 report.getStatus();
 
 if(status.equals("Pending"))
 {
+
 %>
 
 <span class="badge bg-warning text-dark">
@@ -188,9 +308,12 @@ Pending
 </span>
 
 <%
+
 }
+
 else if(status.equals("Assigned"))
 {
+
 %>
 
 <span class="badge bg-primary">
@@ -200,9 +323,13 @@ Assigned
 </span>
 
 <%
+
 }
+
 else
+
 {
+
 %>
 
 <span class="badge bg-success">
@@ -212,7 +339,9 @@ Rescued
 </span>
 
 <%
+
 }
+
 %>
 
 </td>
@@ -220,11 +349,13 @@ Rescued
 <td>
 
 <%
+
 String urgency =
 report.getUrgencyLevel();
 
 if(urgency.equals("High"))
 {
+
 %>
 
 <span class="badge bg-danger">
@@ -234,9 +365,12 @@ High
 </span>
 
 <%
+
 }
+
 else if(urgency.equals("Medium"))
 {
+
 %>
 
 <span class="badge bg-warning text-dark">
@@ -246,9 +380,13 @@ Medium
 </span>
 
 <%
+
 }
+
 else
+
 {
+
 %>
 
 <span class="badge bg-success">
@@ -258,7 +396,9 @@ Low
 </span>
 
 <%
+
 }
+
 %>
 
 </td>
@@ -266,25 +406,29 @@ Low
 <td>
 
 <form action="UpdateStatusServlet"
-      method="post">
+method="post">
 
 <input type="hidden"
-    name="report_id"
-    value="<%= report.getReportId() %>">
+name="report_id"
+value="<%= report.getReportId() %>">
 
-<select name="status"
-     class="form-select form-select-sm">
+<select
+name="status"
+class="form-select form-select-sm">
 
 <option>Pending</option>
+
 <option>Assigned</option>
+
 <option>Rescued</option>
 
 </select>
 
-<button type="submit"
-     class="btn btn-primary btn-sm mt-2 w-100">
+<button
+type="submit"
+class="btn btn-success btn-sm w-100 mt-2">
 
-Update
+Update Status
 
 </button>
 
@@ -294,11 +438,11 @@ Update
 
 <td>
 
-<a href="DeleteReportServlet?id=<%= report.getReportId() %>"
-class="btn btn-danger btn-sm"
+<a
+href="DeleteReportServlet?id=<%= report.getReportId() %>"
+class="btn btn-outline-danger btn-sm"
 
-onclick="return confirm(
-'Are you sure you want to delete this report?')">
+onclick="return confirm('Delete this report?')">
 
 Delete
 
@@ -322,25 +466,47 @@ Delete
 
 <!-- FOOTER -->
 
-<footer class="bg-dark text-white mt-5">
-    
-<div class="container text-center p-4">
+<footer>
 
-<h5>
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-md-6">
+
+<h5 class="fw-semibold">
+
 Animal Rescue Management System
+
 </h5>
 
-<p>
-Helping animals through technology
+<p class="text-muted mb-0">
+
+Helping rescue and protect animals through technology.
+
 </p>
 
-<p>
-animalrescue@example.com
+</div>
+
+<div class="col-md-6 text-md-end mt-3 mt-md-0">
+
+<span class="badge bg-success">
+
+<i class="bi bi-check-circle-fill me-1"></i>
+
+System Online
+
+</span>
+
+<p class="text-muted mt-2 mb-0">
+
+© 2026 Animal Rescue Portal
+
 </p>
 
-<p>
-© 2026 All Rights Reserved
-</p>
+</div>
+
+</div>
 
 </div>
 

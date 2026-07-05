@@ -4,8 +4,8 @@ String admin =
 
 if(admin == null)
 {
-response.sendRedirect("adminlogin.html");
-return;
+    response.sendRedirect("adminlogin.html");
+    return;
 }
 
 int total =
@@ -27,52 +27,176 @@ int rescued =
 
 <head>
 
-```
 <title>Admin Dashboard</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <style>
 
-    body{
-        background:#f4f6f9;
-    }
+body{
 
-    .hero{
+    background:#f8fafc;
 
-        background:linear-gradient(
-                135deg,
-                #14532d,
-                #22c55e);
+    font-family:'Segoe UI',sans-serif;
 
-        color:white;
+    color:#1f2937;
+}
 
-        padding:50px;
+/* ================= NAVBAR ================= */
 
-        border-radius:20px;
+.navbar{
 
-        margin-top:30px;
-    }
+    background:white;
 
-    .dashboard-card{
+    border-bottom:1px solid #e5e7eb;
 
-        border:none;
+    padding:15px 0;
+}
 
-        border-radius:20px;
+.navbar-brand{
 
-        box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    font-size:24px;
 
-        transition:0.3s;
-    }
+    font-weight:600;
 
-    .dashboard-card:hover{
+    color:#198754 !important;
+}
 
-        transform:translateY(-5px);
-    }
+.logo{
+
+    width:45px;
+
+    height:45px;
+
+    object-fit:contain;
+}
+
+.logout-btn{
+
+    border-radius:10px;
+
+    padding:8px 20px;
+}
+
+/* ================= PAGE HEADER ================= */
+
+.page-title{
+
+    margin-top:40px;
+}
+
+.page-title h1{
+
+    font-weight:700;
+
+    font-size:40px;
+}
+
+.page-title p{
+
+    color:#6b7280;
+
+    font-size:18px;
+}
+
+/* ================= DASHBOARD CARDS ================= */
+
+.stats-card{
+
+    border:none;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+    transition:.3s;
+
+    height:100%;
+}
+
+.stats-card:hover{
+
+    transform:translateY(-4px);
+}
+
+.icon-circle{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#e8f5e9;
+
+    color:#198754;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:26px;
+
+    margin-bottom:20px;
+}
+
+.stats-card h6{
+
+    color:#6b7280;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+}
+
+.stats-card h2{
+
+    font-size:45px;
+
+    font-weight:700;
+}
+
+/* ================= MAIN CARDS ================= */
+
+.main-card{
+
+    border:none;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.action-btn{
+
+    border-radius:10px;
+
+    padding:12px 28px;
+}
+
+footer{
+
+    margin-top:70px;
+
+    background:white;
+
+    border-top:1px solid #e5e7eb;
+
+    padding:35px;
+}
+
+.footer-title{
+
+    font-weight:600;
+}
 
 </style>
-```
 
 </head>
 
@@ -80,178 +204,379 @@ int rescued =
 
 <!-- NAVBAR -->
 
-<nav class="navbar navbar-dark bg-success">
+<nav class="navbar">
 
-```
 <div class="container">
 
-    <a class="navbar-brand d-flex align-items-center"
-   href="#">
+<a class="navbar-brand d-flex align-items-center"
+href="#">
 
 <img src="images/logo.png"
-     width="40"
-     height="40"
-     class="me-2">
-
-<span>
+class="logo me-3">
 
 Animal Rescue Portal
 
-</span>
+</a>
+
+<a href="LogoutServlet"
+class="btn btn-outline-success logout-btn">
+
+<i class="bi bi-box-arrow-right"></i>
+
+Logout
 
 </a>
 
-    <a href="LogoutServlet"
-       class="btn btn-light">
-
-        Logout
-
-    </a>
-
 </div>
-```
 
 </nav>
 
-<!-- MAIN CONTENT -->
+<!-- PAGE HEADER -->
 
 <div class="container">
 
-```
-<!-- HERO SECTION -->
+<div class="page-title">
 
-<div class="hero text-center">
+<h1>
 
-    <h1>
+Admin Dashboard
 
-        Admin Dashboard
+</h1>
 
-    </h1>
+<p>
 
-    <p class="lead">
+Manage rescue reports and monitor rescue activities.
 
-        Manage rescue reports and coordinate
-        animal rescue operations efficiently.
-
-    </p>
+</p>
 
 </div>
 
-<!-- DASHBOARD CARDS -->
+<!-- STATISTICS -->
 
-<!-- DASHBOARD CARDS -->
+<div class="row mt-4 g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stats-card">
+
+<div class="card-body">
+
+<div class="icon-circle">
+
+<i class="bi bi-file-earmark-text"></i>
+
+</div>
+
+<h6>Total Reports</h6>
+
+<h2>
+
+<%= total %>
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stats-card">
+
+<div class="card-body">
+
+<div class="icon-circle">
+
+<i class="bi bi-clock-history"></i>
+
+</div>
+
+<h6>Pending</h6>
+
+<h2>
+
+<%= pending %>
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stats-card">
+
+<div class="card-body">
+
+<div class="icon-circle">
+
+<i class="bi bi-person-check"></i>
+
+</div>
+
+<h6>Assigned</h6>
+
+<h2>
+
+<%= assigned %>
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stats-card">
+
+<div class="card-body">
+
+<div class="icon-circle">
+
+<i class="bi bi-check-circle"></i>
+
+</div>
+
+<h6>Rescued</h6>
+
+<h2>
+
+<%= rescued %>
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SECOND ROW -->
+
 <div class="row mt-5 g-4">
 
-    <!-- Total Reports -->
-    <div class="col-md-3">
-        <div class="card dashboard-card h-100">
-            <div class="card-body text-center">
-                <h5>Total Reports</h5>
-                <h1><%= total %></h1>
-            </div>
-        </div>
-    </div>
+<div class="col-lg-5">
 
-    <!-- Pending -->
-    <div class="col-md-3">
-        <div class="card dashboard-card h-100">
-            <div class="card-body text-center">
-                <h5>Pending</h5>
-                <h1><%= pending %></h1>
-            </div>
-        </div>
-    </div>
+<div class="card main-card h-100">
 
-    <!-- Assigned -->
-    <div class="col-md-3">
-        <div class="card dashboard-card h-100">
-            <div class="card-body text-center">
-                <h5>Assigned</h5>
-                <h1><%= assigned %></h1>
-            </div>
-        </div>
-    </div>
+<div class="card-body p-4">
 
-    <!-- Rescued -->
-    <div class="col-md-3">
-        <div class="card dashboard-card h-100">
-            <div class="card-body text-center">
-                <h5>Rescued</h5>
-                <h1><%= rescued %></h1>
-            </div>
-        </div>
-    </div>
+<div class="icon-circle">
+
+<i class="bi bi-clipboard2-pulse"></i>
 
 </div>
 
-<!-- MANAGEMENT SECTION -->
-<div class="row mt-4">
+<h3>
 
-    <div class="col-md-4">
-        <div class="card dashboard-card h-100">
-            <div class="card-body text-center p-4">
+Case Management
 
-                <h3>Case Management</h3>
+</h3>
 
-                <p>
-                    Update rescue status and manage rescue cases.
-                </p>
+<p class="text-muted">
 
-                <a href="ViewReportsServlet"
-                   class="btn btn-primary">
-                    Manage Cases
-                </a>
+Review rescue requests, update rescue status,
+and manage ongoing rescue operations.
 
-            </div>
-        </div>
-    </div>
+</p>
 
-    <!-- WELCOME CARD -->
-    <div class="col-md-8">
-        <div class="card dashboard-card h-100">
-            <div class="card-body text-center">
+<a href="ViewReportsServlet"
+class="btn btn-success action-btn">
 
-                <h4>
-                    Welcome Administrator
-                </h4>
+Manage Cases
 
-                <p>
-                    Use this dashboard to monitor rescue reports,
-                    update rescue status, and manage animal rescue
-                    operations effectively.
-                </p>
+<i class="bi bi-arrow-right ms-2"></i>
 
-            </div>
-        </div>
-    </div>
+</a>
 
 </div>
 
 </div>
 
-<!-- FOOTER -->
-<footer class="bg-dark text-white mt-5">
-    
-<div class="container text-center p-4">
+</div>
 
-<h5>
-Animal Rescue Management System
+<div class="col-lg-7">
+
+<div class="card main-card h-100">
+
+<div class="card-body p-5">
+
+<h3 class="mb-3">
+
+Welcome Administrator
+
+</h3>
+
+<p class="text-muted">
+
+Welcome to the Animal Rescue Management System. This dashboard
+provides a quick overview of rescue reports submitted by users.
+You can monitor rescue activities, assign volunteers, update
+case statuses, and manage all rescue operations from one place.
+
+</p>
+
+<hr>
+
+<div class="row text-center mt-4">
+
+<div class="col-md-4">
+
+<h5 class="fw-bold">
+
+<%= total %>
+
 </h5>
 
-<p>
-Helping animals through technology
+<p class="text-muted mb-0">
+
+Total Cases
+
 </p>
 
-<p>
-animalrescue@example.com
+</div>
+
+<div class="col-md-4">
+
+<h5 class="fw-bold text-warning">
+
+<%= pending %>
+
+</h5>
+
+<p class="text-muted mb-0">
+
+Pending
+
 </p>
 
-<p>
-© 2026 All Rights Reserved
+</div>
+
+<div class="col-md-4">
+
+<h5 class="fw-bold text-success">
+
+<%= rescued %>
+
+</h5>
+
+<p class="text-muted mb-0">
+
+Completed
+
 </p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<h5 class="footer-title">
+
+Animal Rescue Management System
+
+</h5>
+
+<p class="text-muted">
+
+Helping rescue, protect and care for animals through
+technology.
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h6>
+
+Quick Links
+
+</h6>
+
+<ul class="list-unstyled">
+
+<li>
+
+<a href="ViewReportsServlet"
+class="text-decoration-none text-muted">
+
+Manage Reports
+
+</a>
+
+</li>
+
+<li>
+
+<a href="LogoutServlet"
+class="text-decoration-none text-muted">
+
+Logout
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="col-md-3 text-md-end">
+
+<h6>
+
+System Status
+
+</h6>
+
+<span class="badge bg-success">
+
+Online
+
+</span>
+
+<p class="text-muted mt-2 mb-0">
+
+© 2026 Animal Rescue Portal
+
+</p>
+
+</div>
+
+</div>
 
 </div>
 
 </footer>
+
 </body>
+
 </html>
